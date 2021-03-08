@@ -28,7 +28,7 @@ class Animal(WithTime):
 
     # animal can move
     def move(self, displacement):
-        self.position.add(displacement)
+        self.position = self.position.add(displacement)
     
     # because implemented WithTime
     def next_tick(self):

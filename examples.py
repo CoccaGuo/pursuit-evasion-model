@@ -1,5 +1,6 @@
 # examples.py by CoccaGuo at 2021/03/07 19:53
-from rules import PrintRule
+from predator import Predator
+from rules import CatchRule, EatRule, EscapeRule, PlotRule, PrintRule
 from with_rule import WithRule
 from world import World
 from prey import Prey
@@ -38,4 +39,25 @@ def example02():
     world.rule.add_rules([RandomWalkRule(world), PrintRule(world)])
     world.start()
 
-example02()
+
+def example03():
+    dear1 = Prey(name="dear1", velocity=V(0, 0), position=V(10, 20))
+    dear2 = Prey(name="dear2", velocity=V(0, 0), position=V(20, -10))
+    dear3 = Prey(name="dear3", velocity=V(0, 0), position=V(0, 5))
+    dear4 = Prey(name="dear4", velocity=V(0, 0), position=V(15, -10))
+    dear5 = Prey(name="dear5", velocity=V(0, 0), position=V(-15, 0))
+    wolf1 = Predator(name="wolf1", velocity=V(0, 0), position=V(-10, 10))
+    wolf2 = Predator(name="wolf2", velocity=V(0, 0), position=V(15, 0))
+    obj_list = [dear1, dear2, dear3, dear4, dear5, wolf1, wolf2]
+    
+    world = World(ticks=335, objects=obj_list)
+    world.rule.add_rules([
+        CatchRule(world), 
+        EscapeRule(world), 
+        EatRule(world), 
+        PrintRule(world), 
+        PlotRule(world, limit=(50, -20, 30, -30))
+        ])
+    world.start()
+
+example03()
