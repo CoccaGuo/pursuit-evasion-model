@@ -1,7 +1,8 @@
 # 追逃模型
-这是一个基于Python的可拓展的追逃模型。例子可见`examples.py`。
+这是一个基于Python的可拓展的追逃模型。例子可见`simple_examples.py`和`forest_example.py`。
 
 ![demo_png](./readme.asserts/demo.png)
+![forest_png](./readme.asserts/forest.png)
 
 # 基于规则定义
 在这个模型中，规则（Rule）可以决定世界生物的生成规律，捕食链，移动规则等等。
@@ -21,3 +22,5 @@
 某些自然变动的量可以直接通过类实现`WithTime`接口实现，Animal类实现了该接口，可以根据设定的速度值随着时间的流逝移动自身。
 
 规则本身也实现了`WithTime`接口，在定制规则时，您只要专注于某一时刻各个对象的位置、状态和运动趋势即可。
+
+(以上입니다.)

@@ -28,7 +28,7 @@ class CatchRule(WithRule):
                 return
             min_distance = min(distance) # decide by distance
             aim_prey = prey_list[distance.index(min_distance)]
-            predator_speed = 0.5
+            predator_speed = 1
             orient = aim_prey.position.minus(predator.position).normalize()
             velocity = orient.mul(predator_speed)
             predator.move(velocity)
@@ -57,7 +57,7 @@ class EscapeRule(WithRule):
                 orient = orient.add(escape_orient)
             orient = orient.normalize()
 
-            escape_speed = 0.3
+            escape_speed = 0.5
             escape_velocity = orient.mul(escape_speed)
             prey.move(escape_velocity)
 
